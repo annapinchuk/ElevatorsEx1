@@ -60,5 +60,8 @@ allocate_call_for_elev
 ```
 
 ## Log files
-
+all the logs are precented in the folder: 
+```sh 
+call_logs
+```
 ## UML Diagram
