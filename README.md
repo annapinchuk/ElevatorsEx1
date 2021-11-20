@@ -1,19 +1,64 @@
-# SmartElevator
+## Schedule Elevators - Ex1 - OOP
+
+### Defining The Problem
+Write an OOP 'Elevator project' using an Algorithm based on the concept of "Smart Elevator". 
+
+The assignment is to build an offline algorithm matching a call for an elevator.
+The Algorithm is going to consider all the buildings,elevators and elevator calls which are already given to us and make the perfect match by calculating the most efficient and optimal route.
+
+## References
+* Description of the Designated Dispatch algorithm method on [Elevatorpedia](https://elevation.fandom.com/wiki/Destination_dispatch) website which explains an optimization technique used to group passengers with the same destination to the same single lifts,by doing that the algorithm will reduce wait time by eliminating unnecessary stops.
+
+* The study : [Decision-Theoretic Group Elevator Scheduling](https://www.aaai.org/Papers/ICAPS/2003/ICAPS03-014.pdf),explains an algorithm that optimizes matching the calls to the elevator using Dynamic Programing.
+
+* the study :[Elevator Control Using Reinforcement Learning
+to Select Strategy](https://www.kth.se/social/files/588617c2f276547fe1dbf8d2/AJanssonKUgglaLingvall_dkand15.pdf), Focuses on finding the optimal solution for matching a call to an elevator issue by using AI programing which selects the best algorithm out of 5 , depending on a specific case.
 
 
-In this task an algorithm is opened for an elevator system of a high-rise building. In general, we will think of a building as having a minimum floor (can be negative) and a maximum floor, when all the intermediate floors exist. Each building will have several elevators (one or more). For simplicity, let's say that each elevator can reach any of the floors. Above all each elevator has characteristics of stopping time, movement start time, and speed (how many floors the elevator passes per second).
 
-In general, we think of the elevators in the building as "smart elevators" meaning: the user simply has to tap the destination floor outside the elevators and then the system has to insert (assign) a particular elevator that is already set to stop at the destination floor.
-In this task the challenge will focus on the following optimization challenge:
-Given a call to the elevator from the source floor to the destination floor - the system will want to insert the elevator that will minimize the arrival time (arrival time is set to the length of time in seconds between the call to the elevator and between reaching the destination floor). More generally it is said that given a collection of lifts calls on time we would like to define an elevator placement strategy for calls that will minimize the total arrival time for all calls.
+## Code Design - classes
+### elevator 
+Represents an elevator in the building.<br/>
+#### each elevator has:
+* speed <br/>
+* min_floor<br/>
+* max_floor <br/>
+* close_time<br/>
+* open_time<br/>
+* start_time <br/>
+* stop_time<br/>
+### building
+Represents a building.<br/>
+#### each building has:
+* min_floor<br/>
+* max_floor <br/>
+* elevators (the exact number of elevators in this building)<br/>
+### callforelevator
+Represents the call allcated to the elevator.
+#### each call has:
+* time<br/>
+* src <br/>
+* dest <br/>
+* state <br/>
+* elev (the specific elevator that takes the call)<br/>
+### main
+This class contains the main functions.
+#### main: 
+Creating new elemenrs to run, and use all the function below to run the algorithm
+#### allocate_call_for_elev:
+Matches a call for specific elevator using the devition algorithm.
+#### j_to_building: 
+Take the given JSONs and converting them into a building.
+#### csv_to_calls: 
+Take the given CSV file and converting it into calls.
+#### csv_output_writer: 
+Take the reusalts of the algorithm and write it into output file.
+### elev_test_main
+Testing the main algorithm function : 
+```sh 
+allocate_call_for_elev
+```
 
-### The algorithm
+## Log files
 
-#### Given the total readings is considered the optimal time for them and thus we will assign to each reading a suitable elevator.
-#### Given n readings - we would like to coordinate for each elevator from 1 to n readings so that all readings will be performed at the best and most optimal time while combining #### the division between the total elevators in the building.
-#### We would like to calculate all the collection options for each elevator that exists in the building, and thus find for each reading the best elevator for it, so that it is #### possible that for some x-elevator there will be a large number of readings.
-#### For all associations there are ∑_ (i = 0) ^ n▒ 〖(n¦i)〗 and of each possibility of placing calls to the elevator the total time between all the possibilities of all the #### elevators is calculated similar to the formula from an online ca
-#### This problem is similar to the problem of the traveling agent, which has no computational solution in a reasonable time. 
-
-
-###### Created by Tzach Ofir and Anna 
+## UML Diagram
