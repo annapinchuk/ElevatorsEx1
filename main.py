@@ -6,26 +6,6 @@ from building import building
 from elevator import elevator
 
 
-def j_to_building(building_path):
-    with open(building_path) as f:
-        data = json.load(f)
-        elevators = [elevator(
-            e["_id"],
-            e["_speed"],
-            e["_minFloor"],
-            e["_maxFloor"],
-            e["_closeTime"],
-            e["_openTime"],
-            e["_startTime"],
-            e["_stopTime"])
-            for e in data["_elevators"]]
-        building_ = building(data["_minFloor"],
-                             data["_maxFloor"],
-                             elevators)
-        f.close()
-    return building_
-
-
 def allocate_call_for_elev(call, max_length, building):
     length_of_the_call = abs(int(call.dest) - int(call.src))
     building.sort_speed_elev(call)
