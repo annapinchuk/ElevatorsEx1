@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+class main
+class elevator
+class building
+class callforelevator
+elevator <.. main
+building <.. main
+callforelevator <.. main
+elevator <..building
+
+
+class elevator {
+        ID: String
+        min_floor: int
+        max_floor: int
+        start_time: double
+        stop_time: double
+        open_time: double
+        close_time: double
+        speed: double
+
+       +__str__(self):String
+}
+
+class building {
+       elevators[]: callforelevator
+       min_floor: int
+       max_floor: int
+
+        +sort_speed_elev:Void
+       +__str__(self):String
+}
+
+class callforelevator {
+        time: float
+        src: int
+        dest: int
+        state: int
+        elev: int
+
+       +for_out(self): list
+       +__str__(self):String
+}
+
+class main {
+
++def allocate_call_for_elev(call, max_length, building):
++def j_to_building(building_path):
++def csv_to_calls(path):
++def csv_output_writer(output_path, calls_for_elev):
++if __name__ == '__main__':
+
+}
+
+
+@enduml
