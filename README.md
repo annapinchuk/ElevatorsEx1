@@ -65,3 +65,4 @@ all the logs are precented in the folder:
 call_logs
 ```
 ## UML Diagram
+<img src="https://github.com/annapinchuk/ElevatorsEx1/blob/master/UML.png" width="600">
